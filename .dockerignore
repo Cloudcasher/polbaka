@@ -1,0 +1,11 @@
+# В образ не должны попадать:
+.venv/
+__pycache__/
+*.pyc
+.env
+.env.*
+.git/
+.gitignore
+*.md
+.vscode/
+.idea/

@@ -1,0 +1,15 @@
+# Секреты
+.env
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# IDE
+.vscode/
+.idea/
+
+# Настройки Claude Code (локальные, не для репозитория)
+.claude/

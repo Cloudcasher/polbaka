@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ПолБака — где есть бензин в СПб и области</title>
+    <meta name="description" content="Народная карта наличия топлива на АЗС Санкт-Петербурга и Ленобласти: свежие отметки водителей, очереди, лимиты отпуска.">
+    <meta property="og:title" content="ПолБака — где есть бензин в СПб и области">
+    <meta property="og:description" content="Карта наличия топлива в реальном времени: отметки водителей, очереди и лимиты на АЗС.">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⛽</text></svg>">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.Default.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>⛽ ПолБака</h1>
+        <p class="tagline">Карта наличия топлива — Санкт-Петербург и область</p>
+        <nav id="fuel-filter" aria-label="Марка топлива">
+            <button data-fuel="AI92">АИ-92</button>
+            <button data-fuel="AI95" class="active">АИ-95</button>
+            <button data-fuel="AI98">АИ-98</button>
+            <button data-fuel="AI100">АИ-100</button>
+            <button data-fuel="DT">ДТ</button>
+            <button data-fuel="GAS">Газ</button>
+        </nav>
+        <nav id="view-filter" aria-label="Фильтр наличия">
+            <button data-view="all" class="active">Все</button>
+            <button data-view="available">Только есть</button>
+            <button data-view="usable">Есть или очередь</button>
+        </nav>
+    </header>
+
+    <div id="net-banner" hidden>⚠️ Нет связи с сервером — данные на карте могли устареть</div>
+    <div id="empty-hint" hidden></div>
+    <div id="loading"><div class="spinner"></div>Загружаем заправки…</div>
+    <div id="map"></div>
+
+    <details id="legend" open>
+        <summary>Легенда — <span id="legend-fuel">АИ-95</span></summary>
+        <div><span class="dot confirmed-available"></span> Есть (подтверждено)</div>
+        <div><span class="dot single-available"></span> Есть (1 отметка)</div>
+        <div><span class="dot low"></span> Мало / очередь</div>
+        <div><span class="dot empty"></span> Пусто</div>
+        <div><span class="dot nodata"></span> Нет данных / устарело</div>
+    </details>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="https://unpkg.com/leaflet.markercluster@1.5.3/dist/leaflet.markercluster.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
