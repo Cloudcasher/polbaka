@@ -1,5 +1,8 @@
 # Секреты
 .env
+root.txt
+*.pem
+*password*.txt
 
 # Python
 __pycache__/
